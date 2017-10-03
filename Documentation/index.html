@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ultimate Blocks Documentation</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body data-spy="scroll" data-target="#navbar-example">
+  <div class="navigation">
+      <div class="container">
+            <nav id="navbar-example" class="navbar navbar-light fixed-top">
+              <a class="navbar-brand" href="#">Ultimate Blocks Documentation</a>
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+                  <a class="nav-link" href="#introduction">Introduction</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#installation">Installation</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#usingyourblocks">Using Your Own Blocks</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#developing">Developing &amp; modifying</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#accordion">Changelog</a>
+                </li>
+              </ul>
+            </nav>
+      </div>
+  </div>
+  
+  <header>
+    <div class="caption">
+      <h1>Ultimate Blocks - Theme Builder</h1>
+      <h3>Documentation and Changelog</h3>
+    </div>
+  </header>
+
+  <section class="info">
+    <div class="boxes">
+      <div class="box">
+        <h2>14</h2>
+        <h4>Navigations</h4>
+      </div>
+      <div class="box">
+        <h2>24</h2>
+        <h4>Intros</h4>
+      </div>
+      <div class="box">
+        <h2>200</h2>
+        <h4>Elements</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="documentation-content" class="documentation-content">
+    <div class="container">
+        <div class="content">
+            <div data-spy="scroll" data-target="#navbar-example" data-offset="0">
+              <h4 id="introduction">Introduction</h4>
+              <p><b>Ultimate Blocks</b> are blocks based HTML drag & drop theme builder. <b>Ultimate Blocks</b> is modern responsive unlimited layouts template. Template is based on Bootstrap framework. It is perfect template for app landing page, digital studio, online business, personal portfolio, blog, shop, restaurant page, medical page etc. Well organized and comment codes so it’s very easy to customize and use in your project according to your needs.</p>
+              <p>Ultimate Blocks runs (almost) entirely in the browser. The only server side code is in the form of a single PHP file used for exporting HTML markup.</p>
+              <h4 id="installation">Installation</h4>
+              <h5>Requirements</h5>
+              <p>To be able to use Ultimate Blocks, you must have the following:</p>
+              <ul>
+                  <li>PHP</li>
+                  <li>Apache webserver (Windows servers will probably work, but are not supported)</li>
+                  <li>A FTP tool to upload files</li>
+              </ul>
+              <h5>Structure</h5>
+              <div class="card">
+                  <code>
+                  <div class="title">Directory Structure</div>
+<pre>    /Documentation/
+        - index.html
+    /Ultimate Blocks/
+        - assets/
+            - css/
+            - elements/
+            - fonts/
+            - html/
+            - images/
+            - js/
+            - json/
+            - server/
+            - tmp/
+        -build/
+            - bundles/
+            - elements/
+            - tmp/
+            - _export.php
+            - _preview.php
+            - _save.php
+            - _upload.php
+            - elements.json
+            - index.html
+            - site.json
+        - less/
+        - package.json
+        - README.md
+        - webpack.config.js
+    - Changelog.txt
+</pre>
+                    
+                  </code>
+              </div>
+              <h5>Installation</h5>
+              <p>Installing the Ultimate Blocks Builder is simply a matter uploading the contents of the build folder to a server/hosting account. Once uploaded, point your browser to said server/hosting and your script will work. </p>
+              <h4 id="features">Features</h4>
+              <h5>Drag &amp; Drop</h5>
+              <p>Ultimate Blocks allows users to drag HTML blocks onto a canvas and drop them where they'd like them to appear. Once dropped onto the canvas, the position can be changed by dragging and dropping as well. Blocks can be delete individually or all blocks on the current page can be deleted in one go. </p>
+              <h5>Editing Content</h5>
+              <p>The Ultimate Blocks Builder also allows for basic CSS editing. Using the built-in CSS editor, end-users can customize whatever CSS attributes the script's admin has configured. When editing a link, the end-user can point the link to either an internal page or an (external) URL.</p>
+              <p>Which CSS attributes are active is configured through the config.js module (js/modules/config.js) using the editableItems object. </p>
+              <h5>Editing Links</h5>
+              <p>The Ultimate Blocks Builder allows user to edit links as well. To be able to edit links, firstly the link selectors will need to be added to the editableItems array in the js/modules/config.js module. When selected, a "link" tab will be visible in the left panel, allowing you to either choose a page to link to or enter a URL manually as well as setting the inner text of the link element. </p>
+              <b>Linking withing a single page</b>
+              <p>When building a one-page website, you might want to link to sections within a single page rather then to a separate page. To do this, simply edit the link and use the second dropdown to choose the block you'd like to link to. The ID's to which can be linked, have to be configured within the block HTML files, and the ID attribute should be assigned to the first child element of the main container (for an example, please have a look at any of the bundled block files). </p>
+              <h5>Editing Images</h5>
+              <p>The Ultimate Blocks Builder allows user to edit images as well. To be able to edit images, firstly the image selectors will need to be added to the "editableItems" array in the js/modules/config.js file. When selected, a "image" tab will be visible in the left panel, allowing you to either upload an image or enter a URL manually. </p>
+              <h5>Editing Videos</h5>
+              <p>Ultimate Blocks Builder allows users to edit Youtube and Vimeo videos as well. Click the video you'd want to edit. This will open the left sidebar panel where you can enter a Youtube video ID or a Vimeo video ID. You can alter between these as you please, the application will detect which platform you're using and update the video accordingly. </p>
+              <h5>Icon Editing</h5>
+              <p>The Ultimate Blocks Builder script allows user to edit icons as well (the script allows you to use all icons available in the Font Awesome collection). To be able to edit icons, firstly the icon selectors will need to be added to the "editableItems" array in the js/modules/config.js file. After clicking on an icon on the canvas, a "icon" tab will be visible in the left panel, allowing you to choose any item from the Font Awesome collection. </p>
+              <h5>Cloning elements</h5>
+              <p>Items which have been setup in the "editableItems" array in js//modules/config.js can be cloned. Select the element which you want to clone and click the clone button in the left panel. Please note that cloned items will be inserted into the canvas right next to the original item. </p>
+              <p>In some situations, you might want to have the parent of the original item cloned, rather then the item itself. Consider the example of an unsorted list with "a" tags inside "li" tags. In this case, it's the containing "li" element which should be cloned, not the "a" element itself. To make this happen, make sure to add the class name "propClone" to the parent element in your element's .html file. For an example, please have a look at the navigation of the block "header1.html". </p>
+              <h5>Exporting a site</h5>
+              <p>Whenever the user is happy with the final result, the created markup can be exported by clicking the export button. The export feature will grab all the used HTML blocks for each created page and inserts these blocks into a copy of the HTML skeleton file. Once all pages are completed, all the HTML files are bundled into a ZIP archive together with the other external resources like stylesheets, Javascript files and images (as configured through the "save.php" file) which will be downloaded by the end user. </p>
+              <h5>Multiple pages</h5>
+              <p>The Ultimate Blocks Builder script allows users to create multiple pages at once. To add a new page, simply click the green button labeled "+ Add" just below the current pages list. You can alter the page names as well (please use names without the .html extension, these are added automatically during the export). When exporting the markup, the pages will use the same names. To delete a page, simply click the little delete icon next to the page you'd like to delete. </p>
+              <h5>Responsive views</h5>
+              <p>Ultimate Blocks Builder allows users to switch between different view modes, this to ensure the resulting page will look good on mobiles, tablets and desktop screens. To toggle between modes, use the three buttons to the left of the main toolbar. </p>
+              <p>The screen sizes for the view modes can be configured in the config.js module, by using the "responsiveModes" object. </p>
+              <h5>Global Blocks</h5>
+              <p>Ultimate Blocks Builder allows users to configure so-called "global blocks". These are blocks that maintain the same appearance and settings across different pages. This feature comes in handy when configuring navigations and footers for example. </p>
+              <p>Each block on the canvas has a check box labeled "Global". When checked, changes made to this block will be applied to the same block on all pages in your site, assuming those other blocks are marked as "global" as well. </p>
+              <h4 id="usingyourblocks">Using Your Own Blocks</h4>
+              <p>Even though the HTML Builder script comes with several HTML blocks ready for usage, the goal of this script is allow you to use with your own HTML template and your own HTML blocks. </p>
+              <p>For your HTML template to be compatible with the HTML Builder script, it needs to meet the following requirements: </p>
+              <div class="alert alert-light">
+                  The HTML template needs to have a modular structure, meaning it's composed of re-usable blocks. Such blocks can be headers, slideshows, blog posts, content sections, pricing tables, etc. Each of these blocks must be a direct child of the templates page container element! For example, the main page container is a DIV element with id="page"; then each of your blocks needs to be a direct child of this DIV container. 
+              </div>
+              <p>To setup your HTML template with Ultimate Blocks Builder, please follow the instructions below: </p>
+              <ol>
+                  <li>Define your HTML blocks. We suggest creating an additional folder (named "elements" for example) in which you should place your HTML files containing your HTML blocks. Within the folder, you should also place your external resources such as stylesheets, Javascript files and images. Where you place these resources is basically up to you, as long as you make sure the HTML files within your folder can access these files. </li> <br>
+                  <li>Each of your blocks will be placed inside it's own HTML file. This means you'll need to create a separate HTML file for each block (!) Within these HTML files, you'll need to make sure you reference all external resources required for this HTML block to function properly; this could be external CSS files, JS file or images. We suggest you load each HTML file inside your browser to check and make sure it functions and looks correct. Please note that within each HTML file, your block must be a direct child of the same page container block (!)</li> <br>
+                  <li>Edit the config.js module (js/modules/config.js) and enter the correct value for the variable "pageContainer" on line 4 of this file. This value should be a jQuery selector (to be save, we'd suggest using an ID select, for example "#page") pointing to your main page container. Please note that you will need to run Browserify again to generate a new builder.js file. You can do this using the provided Jake file or use your own build tool. </li> <br>
+                  <li>Create/edit your HTML skeleton file (skeleton.html) and make sure it sits within your elements folder (as a direct child). This is the HTML file used to create the final HTML files by the export function. It's important that within this file, you link to all the proper external resources like stylesheets, javascript files, images, etc. <br>This HTML file also needs to contain the main page element discussed before, without any child elements! Also keep in mind that the skeleton.html file is referenced by the src attribute of the iframe around line 1938 in build/index.html, if you change the name of the skeleton file, be sure to update the source attribute of this iframe as well. </li> <br>
+                  <li>Once you have completed all of your HTML blocks, the final step is to create a JSON file which contains all the blocks categories and URLs to the HTML block file. For the correct structure of this JSON file, please take a close look at the provided file "elements.json". For each blocks you'll need to specify the height as well, this is important as it's used to calculate the correct height for the thumbnails as well as the blocks on the canvas. </li> <br>
+                  <li>Finally, you might need to configure the export file, "_export.php". The two available variables for configuration are: 
+                  <br><br><ol>
+                      <li><b>$pathToAssets:</b> this is an array containing all the folders within your elements folder which should be included in the exported ZIP. Please note that you only have to include those folders which are direct children of your elements folder. The export function will run through these folders and automatically include all files and folders found within the specified folders. </li> <br>
+                      <li><b>$filename:</b> this is name used for the final ZIP archive downloaded by the user. </li>
+                  </ol>
+                  </li>
+              </ol>
+              <b>Defining editable CSS attributes for HTML items</b>
+              <p>To keep track of your editable items, we've created an array in the config.js module (js/modules/config.js) named editableItems. This multi-dimensional array contains jQuery compatible selectors and an for each selector an array of CSS attributes (please have a look at the original config.js file for the correct syntax). When the script detects a color attribute ("color", "background-color", "border-color", etc) it will automatically activate the color picker. </p>
+              <p>By default, the script will show a regular text field for each CSS attribute (except colors like mentioned above). However, you can also configure a dropdown with a number of options to choose from. To achieve this, another Javascript array is used, named editableItemOptions. This array contains a combination of jQuery selector and CSS attributes as keys and an array with possible values as values. For the correct syntax to use, please have a look at the original "assets/js/config.js" file. </p>
+              <p>PLEASE NOTE: certain issues could arise when nesting editable tags; when clicking on an element which has a parent container element which is also editable, that parent container will be the one selected. You might want to pay special attention to this when setting up your editable items! Since the script uses jQuery based selectors, you can always specify specific classes to prevent this from being a problem. </p>
+              <b>Configuring the upload script (build/_upload.php)</b>
+              <p>To be able to upload images from the Ultimate Blocks Builder script, you'll need to set two variables in "build/_upload.php". The first one, $uploads_dir specifies the folder in which uploaded files are stored (make sure this folder is writable!). The second variable $relative_path specified the relative path between your block files and the upload folder (this path is used to load the image in the Ultimate Blocks Builder interface after uploading a file). </p>
+              <b>Using block thumbnail images instead of live iframes</b>
+              <p>If you're using a large number of blocks, using iframe for the live thumbnails can slow down your script. To provide a workable solution, as of version 1.5, Ultimate Blocks Builder can use images instead of iframes. This significantly speeds up the loading time of the script. To use images, simply add an additional value to the block's entry in your elements.json file. The name of this value should be "thumbnail" and it's value should be the path to the thumbnail image on your server. </p>
+              <h4 id="developing">Developing &amp; modifying</h4>
+              <p>The Ultimate Blocks Builder script is built using commonjs Javascript modules and to be able to use these modules in a browser environment, a tool named Webpack is used. This tool will process the modules and combine them into bundle files (saved to /build/bundles/) which can be loaded in a browser. </p>
+              <p>This method allows us to nicely divide our code into modules, but the downside is that after making a change to the source files, you will need to run the Browserify tool to generate an updated builder.js file. </p>
+              <p>When making changes to the source code, we'd suggest modifying the original modules and then running Webpack. However, theoretically, it's also possible to modify the generated file directly (build/bundles/*). If you decide to do this, please note that if you do decide the use Webpack at a later time, the changes in your build/bundles/* file will be overwritten. </p>
+              <p>The commonjs modules are located in js/modules/. We have chosen to use Jake.js as our build tool. So you can use either the bundled build file, or you can also use your own (like Grunt if that's your thing). </p>
+              <p>For further info regarding developing with Ultimate Blocks Builder, please have a look at README.md.</p>
+              <h4>Changelog</h4>
+              <div id="accordion" role="tablist">
+                  <div class="card">
+                    <div class="card-header" role="tab" id="headingOne">
+                      <h5 class="mb-0 mt-0">
+                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Version 2
+                        </a>
+                      </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div class="card-body">
+                        <div class="alert alert-light">
+                            Version 2.1.3 <br>
+                            - Documentation improved  <br>
+                            - Sliders dropped from builder
+                        </div>
+                        <div class="alert alert-light">
+                            Version 2.1.2 <br>
+                            - Added source codes for easier editing and modifying Ultimate Blocks
+                        </div>
+                        <div class="alert alert-light">
+                            Version 2.1.1 <br>
+                            - Menu items cloning fixed <br>
+                            - Site exporting fixed <br>
+                            - Upload images fixed
+                        </div>
+                        <div class="alert alert-light">
+                            Version 2.1 <br>
+                            - Builder improvements <br>
+                            - Added 40 new blocks (new section "Sliders" added) <br>
+                            - Update Bootstrap to 3.3.7 <br>
+                            - New Feature: now you can change background image in builder
+                        </div>
+                        <div class="alert alert-light">
+                            Version 2.0 <br>
+                            - NEW Builder version 2 <br>
+                            - Fixed: #content3 responsive <br>
+                            - Fixed: #content8 responsive <br>
+                            - Fixed: #content10 slider <br>
+                            - Fixed: #content12 responsive <br>
+                            - Fixed: #content16 responsive <br>
+                            - Fixed: #content18 responsive <br>
+                            - Fixed: #content22 responsive &amp; slider <br>
+                            - Fixed: #content25 font color <br>
+                            - Fixed: #services2 responsive <br>
+                            - Fixed: #intro6 responsive
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" role="tab" id="headingTwo">
+                      <h5 class="mb-0 mt-0">
+                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Version 1
+                        </a>
+                      </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                      <div class="card-body">
+                        <div class="alert alert-light">
+                            Version 1.1.2 <br>
+                            - HTML Builder design improved <br>
+                            - Added 34 new blocks (new sections "Dividers and Downloads" added)
+                        </div>
+                        <div class="alert alert-light">
+                            Version 1.1 <br>
+                            - Live preview bug fixed <br>
+                            - Added 24 new blocks (new section "Intros" added)
+                        </div>
+                        <div class="alert alert-light">
+                            Version 1.0.1 <br>
+                            - Fixed: Small issues with some elements
+                        </div>
+                        <div class="alert alert-light">
+                            Version 1.0 <br>
+                            - Initial release
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+  <section class="features">
+    <div class="container">
+        <h2>Ultimate Blocks Features</h2>
+        <div class="content">
+            <div class="col">
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Valid HTML and CSS3</p>
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> SEO Optimized</p>
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Bootstrap</p>
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Font Awesome</p>
+            </div>
+            <div class="col">
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Drag &amp; Drop Builder</p>
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> 14 Navigations</p>
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> 15 Headers</p>
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> 24 Intros</p>
+            </div>
+            <div class="col">
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Pricing Tables</p>
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Portfolio Blocks</p>
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Well Documented</p>
+                <p><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Lifetime Updates</p>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+  <footer>
+      <p>Copyright &copy; <a href="http://mianfolio.com" target="_blank">Milan Antonić</a> 2017 All right reserved.</p>
+  </footer>
+  
+  <script src="js/popper.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
